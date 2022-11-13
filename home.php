@@ -80,6 +80,8 @@ if(isset($_POST['add_to_cart'])){
 }
 
 ?>
+
+
 <?php
 $xml = simplexml_load_file("1.xml");
 foreach ($xml->prod as $ban):

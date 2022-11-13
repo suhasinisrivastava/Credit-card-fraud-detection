@@ -34,7 +34,16 @@
 				$total_balance = $_POST['total_balance'];
 				$trans_limit = $_POST['trans_limit'];
 				$acc_table_id = $_POST['id'];
-
+				$ip_address=$_SERVER['REMOTE_HOST'];
+				echo $ip_address;	
+				$geopluginURL='http://www.geoplugin.net/php.gp?ip='.$ip_address;
+				$addrDetailsArr = unserialize(file_get_contents($geopluginURL));
+				$city = $addrDetailsArr['geoplugin_city'];
+				$country = $addrDetailsArr['geoplugin_countryName'];
+                    if($country != 'India'){
+                        echo '<p class="error-message">Suspicious activity detected!</p>';
+                    }
+					else{
 				// Withdrawal business logic
 				if($amount <= $total_balance) {
 					if($amount <= $trans_limit) {
@@ -55,10 +64,11 @@
 						// show error message (when maximum limit)
 						echo '<p class="error-message">Sorry!! Maximum limit reached. Try Again!!</p>';
 					}
-				}else {
+				} else {
 					// show error message (When insufficient funds)
 					echo '<p class="error-message">Not Enough Fund!!</p>';
 				}
+			}
 				
 			}
 		?>

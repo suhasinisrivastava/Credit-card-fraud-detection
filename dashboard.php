@@ -53,7 +53,7 @@ include 'helper/config.php';
                     }
                   
 					//if(strpos($allowed_branches, strval($branch_id))) {
-					if($allowed_branches=='Chittagong'){
+					if(true){
 						
 						// set AC num and pin to session
 						$_SESSION['account'] = $card_number;

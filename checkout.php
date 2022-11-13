@@ -46,7 +46,8 @@ if(isset($_POST['order'])){
     }else{
         mysqli_query($conn, "INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price, placed_on) VALUES('$user_id', '$name', '$number', '$email', '$method', '$address', '$total_products', '$cart_total', '$placed_on')") or die('query failed');
         mysqli_query($conn, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
-        $message[] = 'order placed successfully!';
+        header("Location: index2.php"); 
+        exit();
     }
 
     
