@@ -82,17 +82,6 @@ if(isset($_POST['add_to_cart'])){
 ?>
 
 
-<?php
-$xml = simplexml_load_file("1.xml");
-foreach ($xml->prod as $ban):
-?>
-    <tr>
-      <td><?php echo $ban->product_name;?></td>
-      <td><?php echo $ban->product_price;?></td>
-    </tr>
-<?php
-endforeach;
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
